@@ -3,6 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+      },
+
       backgroundImage: {
         galaxy: "url('/background-galaxy.png')",
         "nlw-gradient":
@@ -10,7 +14,6 @@ module.exports = {
         "game-gradient":
           "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 67.08%)",
       },
-      colors: {},
     },
   },
   variants: {
