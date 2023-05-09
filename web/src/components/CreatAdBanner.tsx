@@ -1,4 +1,4 @@
-import { MagnifyingGlassPlus } from "@phosphor-icons/react";
+import { MagnifyingGlassPlus } from '@phosphor-icons/react';
 
 export function CreatAdBanner() {
   return (

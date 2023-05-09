@@ -1,7 +1,7 @@
-import "./styles/main.css";
-import logoImg from "../src/assets/logo-esports.svg";
-import { GameBanner } from "./components/GameBanner";
-import { CreatAdBanner } from "./components/CreatAdBanner";
+import './styles/main.css';
+import logoImg from '../src/assets/logo-esports.svg';
+import { GameBanner } from './components/GameBanner';
+import { CreatAdBanner } from './components/CreatAdBanner';
 
 function App() {
   return (
@@ -9,10 +9,10 @@ function App() {
       <img src={logoImg} alt="" />
 
       <h1 className="text-6xl text-white font-black mt-20">
-        Seu{" "}
+        Seu{' '}
         <span className="text-transparent bg-nlw-gradient bg-clip-text">
           duo
-        </span>{" "}
+        </span>{' '}
         está aqui.
       </h1>
 
