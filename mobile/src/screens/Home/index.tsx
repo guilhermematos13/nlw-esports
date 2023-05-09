@@ -1,15 +1,24 @@
-import React from "react";
-import { View, Image, FlatList } from "react-native";
-import logoImg from "../../assets/logo-nlw-esports.png";
+import React, { useEffect, useState } from 'react';
+import { View, Image, FlatList } from 'react-native';
 
-import { GAMES } from "../../utils/games";
-import { styles } from "./styles";
-import { Heading } from "../../components/Heading";
-import { GameCard } from "../../components/GameCard";
+import logoImg from '../../assets/logo-nlw-esports.png';
+
+import { styles } from './styles';
+import { Heading } from '../../components/Heading';
+import { GameCard, GameCardProps } from '../../components/GameCard';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function Home() {
+  const [games, setGames] = useState<GameCardProps[]>([]);
+
+  useEffect(() => {
+    fetch('http://192.168.0.201:3333/games')
+      .then((response) => response.json())
+      .then((data) => setGames(data));
+  }, []);
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image source={logoImg} style={styles.logo} />
       <Heading
         title="Encontre seu duo!"
@@ -17,13 +26,13 @@ export function Home() {
       />
 
       <FlatList
-        data={GAMES}
+        data={games}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <GameCard data={item} />}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.contentList}
       />
-    </View>
+    </SafeAreaView>
   );
 }
