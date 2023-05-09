@@ -1,6 +1,5 @@
 import "./styles/main.css";
 import logoImg from "../src/assets/logo-esports.svg";
-import { MagnifyingGlassPlus } from "@phosphor-icons/react";
 import { GameBanner } from "./components/GameBanner";
 import { CreatAdBanner } from "./components/CreatAdBanner";
 
