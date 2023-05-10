@@ -79,7 +79,7 @@ export function CreateAdModal() {
                   <CaretDown size={24} />
                 </Select.Icon>
               </Select.Trigger>
-              <Select.Content className="overflow-hidden px-4 py-3 w-[400px] mt-[4.5rem] bg-zinc-900 rounded-sm shadow-md">
+              <Select.Content className="overflow-hidden mt-[4.5rem] px-4 py-3 bg-zinc-900 rounded-sm shadow-md mobile:w-[17.313rem] tablet:w-[19.65rem] lg:w-[400px] ">
                 <Select.Group>
                   {games.map((game) => {
                     return (
