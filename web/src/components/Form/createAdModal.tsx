@@ -63,12 +63,12 @@ export function CreateAdModal() {
   return (
     <Dialog.Portal>
       <Dialog.Overlay className="bg-black/60 inset-0 fixed" />
-      <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-lg shadow-black/25">
+      <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-lg shadow-black/25 lg:w-[480px]">
         <Dialog.Title className="text-3xl text-white font-black">
           Publique um anúncio
         </Dialog.Title>
         <form onSubmit={handleCreateAd} className="mt-8 flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 mobile:text-xs tablet:text-sm lg:text-base">
             <label htmlFor="game" className="font-semibold">
               Qual o game?
             </label>
@@ -97,7 +97,10 @@ export function CreateAdModal() {
             </Select.Root>
           </div>
           <div className="flex flex-col gap-2 mb-4">
-            <label htmlFor="name" className="font-semibold">
+            <label
+              htmlFor="name"
+              className="font-semibold mobile:text-xs tablet:text-sm lg:text-base"
+            >
               Seu nome (ou nickname)
             </label>
             <Input
@@ -107,9 +110,12 @@ export function CreateAdModal() {
               placeholder="Como te chamam dentro do game?"
             />
           </div>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="gap-6 mobile:flex flex-col lg:grid grid-cols-2">
             <div className="flex flex-col gap-2">
-              <label htmlFor="yearsPlaying" className="font-semibold">
+              <label
+                htmlFor="yearsPlaying"
+                className="font-semibold mobile:text-xs tablet:text-sm lg:text-base"
+              >
                 Joga há quantos anos?
               </label>
               <Input
@@ -120,7 +126,10 @@ export function CreateAdModal() {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label htmlFor="discord" className="font-semibold">
+              <label
+                htmlFor="discord"
+                className="font-semibold mobile:text-xs tablet:text-sm lg:text-base"
+              >
                 Qual seu Discord?
               </label>
               <Input
@@ -131,9 +140,12 @@ export function CreateAdModal() {
               />
             </div>
           </div>
-          <div className="flex gap-6">
+          <div className="flex gap-6 mobile:flex-col lg:flex-row">
             <div className="flex flex-col gap-2">
-              <label htmlFor="weekDays" className="font-semibold">
+              <label
+                htmlFor="weekDays"
+                className="font-semibold mobile:text-xs tablet:text-sm lg:text-base"
+              >
                 Quando costuma jogar?
               </label>
 
@@ -209,7 +221,10 @@ export function CreateAdModal() {
               </ToggleGroup.Root>
             </div>
             <div className="flex flex-col gap-2 flex-1">
-              <label htmlFor="hourStart" className="font-semibold">
+              <label
+                htmlFor="hourStart"
+                className="font-semibold mobile:text-xs tablet:text-sm lg:text-base"
+              >
                 Qual horário do dia?
               </label>
 

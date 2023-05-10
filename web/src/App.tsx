@@ -29,7 +29,7 @@ function App() {
     <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
       <img src={logoImg} alt="" />
 
-      <h1 className="text-6xl text-white font-black mt-20">
+      <h1 className="text-white font-black mt-20 mobile:text-3xl tablet:text-5xl lg:text-6xl">
         Seu{' '}
         <span className="text-transparent bg-nlw-gradient bg-clip-text">
           duo
@@ -37,7 +37,7 @@ function App() {
         está aqui.
       </h1>
 
-      <div className="grid grid-cols-6 gap-6 mt-16">
+      <div className="gap-6 mt-16 mobile:flex flex-col tablet:grid tablet:grid-cols-3 lg:grid lg:px-4 lg:grid-cols-6 ">
         {games.map((game) => {
           return (
             <GameBanner
