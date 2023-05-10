@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.9",
+    "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.3",
+    "@radix-ui/react-select": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
