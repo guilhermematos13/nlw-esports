@@ -5,6 +5,7 @@ import { GameBanner } from './components/GameBanner';
 import { CreatAdBanner } from './components/CreatAdBanner';
 import { useEffect, useState } from 'react';
 import { CreateAdModal } from './components/Form/createAdModal';
+import axios from 'axios';
 
 interface Game {
   id: string;
@@ -19,12 +20,9 @@ function App() {
   const [games, setGames] = useState<Game[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3333/games')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setGames(data);
-      });
+    axios('http://localhost:3333/games').then((response) => {
+      setGames(response.data);
+    });
   }, []);
 
   return (
