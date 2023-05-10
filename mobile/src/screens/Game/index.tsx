@@ -10,7 +10,7 @@ import { GameParams } from '../../@types/navigation';
 
 import { Background } from '../../components/Background';
 import logoImg from '../../assets/logo-nlw-esports.png';
-import { FlatList, Image, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
 
@@ -57,11 +57,20 @@ export function Game() {
         <FlatList
           data={duos}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <DuoCard data={item} />}
+          renderItem={({ item }) => (
+            <DuoCard onConnect={() => {}} data={item} />
+          )}
           horizontal
           style={styles.containerList}
-          contentContainerStyle={styles.contentList}
+          contentContainerStyle={[
+            duos.length > 0 ? styles.contentList : styles.emptyListContent,
+          ]}
           showsHorizontalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <Text style={styles.emptyListText}>
+              Não há anúncios publicado ainda.
+            </Text>
+          )}
         />
       </SafeAreaView>
     </Background>
