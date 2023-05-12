@@ -24,7 +24,7 @@ export function DuoCard({ data, onConnect }: Props) {
   return (
     <View style={styles.container}>
       <DuoInfo label="Nome" value={data.name} />
-      <DuoInfo label="Tempo de jogo" value={`${data.yearsPlaying} anos`} />
+      <DuoInfo label="Tempo de jogo" value={`${data.yearsPlaying} ano(s)`} />
       <DuoInfo
         label="Disponibilidade"
         value={`${data.weekDays.length} dias \u2022 ${data.hourStart[0]}${data.hourStart[1]}h - ${data.hourEnd[0]}${data.hourEnd[1]}h`}

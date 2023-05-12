@@ -13,12 +13,15 @@ import logoImg from '../../assets/logo-nlw-esports.png';
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
+import { DuoMatch } from '../../components/DuoMatch';
 
 export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
   const navigation = useNavigation();
   const route = useRoute();
   const game = route.params as GameParams;
+  const [discordDuoSelected, setDiscordDuoSelected] =
+    useState('Leonhart #1309');
 
   function handleGoBack() {
     navigation.goBack();
@@ -71,6 +74,14 @@ export function Game() {
               Não há anúncios publicado ainda.
             </Text>
           )}
+        />
+
+        <DuoMatch
+          visible={discordDuoSelected.length > 0}
+          discord="Leonhart #1309"
+          onClose={() => {
+            setDiscordDuoSelected('');
+          }}
         />
       </SafeAreaView>
     </Background>
