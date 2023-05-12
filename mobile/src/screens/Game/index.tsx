@@ -20,11 +20,16 @@ export function Game() {
   const navigation = useNavigation();
   const route = useRoute();
   const game = route.params as GameParams;
-  const [discordDuoSelected, setDiscordDuoSelected] =
-    useState('Leonhart #1309');
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('');
 
   function handleGoBack() {
     navigation.goBack();
+  }
+
+  async function getDiscordUser(adsId: string) {
+    fetch(`http://192.168.0.201:3333/ads/${adsId}/discord`)
+      .then((response) => response.json())
+      .then((data) => setDiscordDuoSelected(data.discord));
   }
 
   useEffect(() => {
@@ -61,7 +66,7 @@ export function Game() {
           data={duos}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <DuoCard onConnect={() => {}} data={item} />
+            <DuoCard onConnect={() => getDiscordUser(item.id)} data={item} />
           )}
           horizontal
           style={styles.containerList}

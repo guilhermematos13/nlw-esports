@@ -14,7 +14,7 @@ import { Heading } from '../Heading';
 
 export function DuoMatch({ discord, onClose, ...rest }: Props) {
   return (
-    <Modal transparent statusBarTranslucent {...rest}>
+    <Modal transparent statusBarTranslucent animationType="fade" {...rest}>
       <View style={styles.container}>
         <View style={styles.content}>
           <TouchableOpacity style={styles.closeIcon} onPress={onClose}>
