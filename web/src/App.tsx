@@ -1,11 +1,17 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './styles/main.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import logoImg from '../src/assets/logo-esports.svg';
+
 import * as Dialog from '@radix-ui/react-dialog';
+import Slider from 'react-slick';
+
 import { GameBanner } from './components/GameBanner';
 import { CreatAdBanner } from './components/CreatAdBanner';
-import { useEffect, useState } from 'react';
 import { CreateAdModal } from './components/Form/createAdModal';
-import axios from 'axios';
 
 interface Game {
   id: string;
@@ -18,6 +24,46 @@ interface Game {
 
 function App() {
   const [games, setGames] = useState<Game[]>([]);
+
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          dots: false,
+          infinite: false,
+          speed: 500,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          dots: false,
+          infinite: false,
+          speed: 500,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          dots: false,
+          infinite: false,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     axios('http://localhost:3333/games').then((response) => {
@@ -36,19 +82,19 @@ function App() {
         </span>{' '}
         está aqui.
       </h1>
-
-      <div className="gap-6 mt-16 mobile:flex flex-col tablet:grid tablet:grid-cols-3 lg:grid lg:px-4 lg:grid-cols-6 ">
-        {games.map((game) => {
-          return (
+      <div className="w-full mt-16 ">
+        <Slider {...settings}>
+          {games.map((game) => (
             <GameBanner
-              key={game.id}
-              bannerUrl={game.bannerUrl}
-              title={game.title}
               adsCount={game._count.ads}
+              title={game.title}
+              bannerUrl={game.bannerUrl}
+              key={game.id}
             />
-          );
-        })}
+          ))}
+        </Slider>
       </div>
+
       <Dialog.Root>
         <CreatAdBanner />
         <CreateAdModal />
